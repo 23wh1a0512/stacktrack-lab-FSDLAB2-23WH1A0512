@@ -43,12 +43,24 @@ const handleChange = (e)=>{
     <div>
       <h2>Tak List</h2>
       <select value={status} onChange={handleChange}>
-      {/* TODO: Replace this placeholder with your question set UI */}
-      <p>QuestionComponent placeholder — implement your assigned question set here.</p>
-
-      {/* TODO: Render fetched data or form elements as required */}
+        <option value="">All</option>
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+      </select>
+      {}
+      <ul>
+        {taskData.length===0 ? (
+          <li>No tasks found.</li>
+        ) : (
+          taskData.map((task) => (
+            <li key={task.id}>
+              <strong>{task.title}</strong> - {task.description} ({task.status})
+            </li>
+          ))
+        )}
+     
     </div>
   );
-}
+  }
 
 export default QuestionComponent;
